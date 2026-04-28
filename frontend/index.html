@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkSense — Handwritten Digit & Text Recognition</title>
+    <meta name="description" content="AI-powered handwritten digit and text recognition. Upload images or draw digits to get instant predictions using deep learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <circle cx="14" cy="14" r="13" stroke="url(#grad1)" stroke-width="2"/>
+                        <path d="M8 14C8 14 10 8 14 8C18 8 20 14 20 14C20 14 18 20 14 20C10 20 8 14 8 14Z" fill="url(#grad1)"/>
+                        <defs><linearGradient id="grad1" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#10b981"/><stop offset="1" stop-color="#059669"/></linearGradient></defs>
+                    </svg>
+                </div>
+                <span class="brand-name">InkSense</span>
+                <span class="brand-tag">AI Recognition</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#digit" class="nav-link">Digit</a>
+                <a href="#text" class="nav-link">Text</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <a href="#digit" class="nav-cta">Try Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">✦ AI-POWERED RECOGNITION</div>
+                <h1 class="hero-title">
+                    Recognize handwriting. Let <span class="highlight">AI</span> read the <span class="highlight">ink</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Instantly recognize handwritten digits and text using deep learning models.
+                    Upload an image or draw directly on canvas for real-time predictions.
+                </p>
+                <div class="hero-actions">
+                    <a href="#digit" class="btn btn-primary" id="btn-get-started">
+                        <span>Get Started</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="card-header">
+                        <div class="card-dots"><span></span><span></span><span></span></div>
+                        <div class="card-tabs">
+                            <button class="card-tab active" data-mode="digit">digit_model.py</button>
+                            <button class="card-tab" data-mode="text">text_model.py</button>
+                            <button class="card-tab" data-mode="config">config.json</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <pre class="code-display"><code id="hero-code"><span class="code-comment"># AI-powered handwriting recognition</span>
+<span class="code-keyword">from</span> <span class="code-module">inksense</span> <span class="code-keyword">import</span> recognize
+
+<span class="code-comment"># Load your handwritten image</span>
+<span class="code-variable">result</span> = recognize(<span class="code-string">"handwriting.png"</span>)
+
+<span class="code-comment"># Get predictions instantly</span>
+<span class="code-keyword">print</span>(result.text)     <span class="code-comment"># "Hello World"</span>
+<span class="code-keyword">print</span>(result.confidence) <span class="code-comment"># 98.3%</span></code></pre>
+                    </div>
+                    <!-- Upload modal overlay -->
+                    <div class="upload-preview">
+                        <div class="upload-modal">
+                            <div class="upload-modal-header">
+                                <span>Upload your file</span>
+                                <button class="upload-close">×</button>
+                            </div>
+                            <div class="upload-modal-body">
+                                <div class="upload-icon-wrap">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 5v22M12 13l8-8 8 8" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 28v4a3 3 0 003 3h24a3 3 0 003-3v-4" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <p>Drag and drop or <span class="upload-link">choose file</span> to upload.</p>
+                                <p class="upload-hint">Image format: JPG, PNG & SVG. Max 5.0 MB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Bar -->
+    <section class="tech-bar">
+        <div class="tech-container">
+            <span class="tech-item">TensorFlow</span>
+            <span class="tech-item">Keras</span>
+            <span class="tech-item">OpenCV</span>
+            <span class="tech-item">MNIST</span>
+            <span class="tech-item">CNN</span>
+            <span class="tech-item">RNN + LSTM</span>
+            <span class="tech-item">CTC Decoder</span>
+            <span class="tech-item">Flask</span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Features</div>
+                <h2>Two powerful recognition engines, <span class="highlight">one platform</span></h2>
+                <p>Combining digit recognition (CNN on MNIST) and text recognition (CNN+RNN+CTC on IAM) into a seamless experience.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3>Digit Recognition</h3>
+                    <p>CNN model trained on 60,000+ MNIST samples achieves 99%+ accuracy on handwritten digits 0-9.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Text Recognition</h3>
+                    <p>CNN+RNN+CTC architecture from SimpleHTR recognizes full handwritten words and text lines.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Draw on Canvas</h3>
+                    <p>Interactive drawing canvas lets you write digits directly in the browser for instant recognition.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>Image Upload</h3>
+                    <p>Drag & drop or upload any handwritten image. Supports JPG, PNG formats up to 5MB.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Confidence Scores</h3>
+                    <p>Every prediction comes with detailed probability distributions and confidence percentages.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Results</h3>
+                    <p>Get predictions in milliseconds with optimized TensorFlow inference pipeline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digit Recognition Section -->
+    <section class="recognition-section" id="digit">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Digit Recognition</div>
+                <h2>Draw or upload a <span class="highlight">digit</span></h2>
+                <p>Our CNN model trained on MNIST will predict handwritten digits with high accuracy.</p>
+            </div>
+            <div class="recognition-layout">
+                <!-- Input Panel -->
+                <div class="input-panel">
+                    <div class="input-tabs">
+                        <button class="input-tab active" data-input="canvas" id="digit-tab-canvas">✏️ Draw</button>
+                        <button class="input-tab" data-input="upload" id="digit-tab-upload">📤 Upload</button>
+                    </div>
+                    <!-- Canvas -->
+                    <div class="input-area" id="digit-canvas-area">
+                        <canvas id="digit-canvas" width="280" height="280"></canvas>
+                        <div class="canvas-controls">
+                            <button class="btn btn-outline" id="digit-clear">Clear</button>
+                            <button class="btn btn-primary" id="digit-predict-canvas">Predict</button>
+                        </div>
+                    </div>
+                    <!-- Upload -->
+                    <div class="input-area hidden" id="digit-upload-area">
+                        <div class="drop-zone" id="digit-drop-zone">
+                            <div class="drop-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 6v28M16 14l8-8 8 8" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 34v6a2 2 0 002 2h32a2 2 0 002-2v-6" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <p class="drop-text">Drag & drop your digit image here</p>
+                            <p class="drop-hint">or click to browse • JPG, PNG • Max 5MB</p>
+                            <input type="file" id="digit-file-input" accept="image/*" hidden>
+                        </div>
+                        <div class="upload-preview-img hidden" id="digit-preview-container">
+                            <img id="digit-preview-img" alt="Preview">
+                            <button class="btn btn-outline btn-sm" id="digit-remove-img">✕ Remove</button>
+                        </div>
+                        <button class="btn btn-primary" id="digit-predict-upload" disabled>Predict Digit</button>
+                    </div>
+                </div>
+                <!-- Result Panel -->
+                <div class="result-panel" id="digit-result-panel">
+                    <div class="result-placeholder" id="digit-placeholder">
+                        <div class="placeholder-icon">🔢</div>
+                        <p>Draw a digit or upload an image to see predictions</p>
+                    </div>
+                    <div class="result-content hidden" id="digit-result">
+                        <div class="result-main">
+                            <div class="predicted-value" id="digit-predicted-value">0</div>
+                            <div class="confidence-badge" id="digit-confidence">98.5%</div>
+                        </div>
+                        <div class="probability-chart" id="digit-probabilities"></div>
+                    </div>
+                    <div class="result-loading hidden" id="digit-loading">
+                        <div class="spinner"></div>
+                        <p>Analyzing...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Recognition Section -->
+    <section class="recognition-section recognition-alt" id="text">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Text Recognition</div>
+                <h2>Upload handwritten <span class="highlight">text</span></h2>
+                <p>Our HTR model using CNN+RNN+CTC will recognize handwritten words and text lines.</p>
+            </div>
+            <div class="recognition-layout">
+                <div class="input-panel">
+                    <div class="input-tabs">
+                        <button class="input-tab active" id="text-tab-upload">📤 Upload Image</button>
+                    </div>
+                    <div class="input-area" id="text-upload-area">
+                        <div class="drop-zone" id="text-drop-zone">
+                            <div class="drop-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 6v28M16 14l8-8 8 8" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 34v6a2 2 0 002 2h32a2 2 0 002-2v-6" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <p class="drop-text">Drag & drop your handwritten text image</p>
+                            <p class="drop-hint">or click to browse • JPG, PNG • Max 5MB</p>
+                            <input type="file" id="text-file-input" accept="image/*" hidden>
+                        </div>
+                        <div class="upload-preview-img hidden" id="text-preview-container">
+                            <img id="text-preview-img" alt="Preview">
+                            <button class="btn btn-outline btn-sm" id="text-remove-img">✕ Remove</button>
+                        </div>
+                        <div class="text-options">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="line-mode-toggle">
+                                <span class="toggle-switch"></span>
+                                <span>Line mode (multiple words)</span>
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" id="text-predict-upload" disabled>Recognize Text</button>
+                    </div>
+                </div>
+                <div class="result-panel" id="text-result-panel">
+                    <div class="result-placeholder" id="text-placeholder">
+                        <div class="placeholder-icon">📝</div>
+                        <p>Upload a handwritten text image to see predictions</p>
+                    </div>
+                    <div class="result-content hidden" id="text-result">
+                        <div class="result-text-main">
+                            <div class="result-label">Recognized Text</div>
+                            <div class="recognized-text" id="text-predicted-value">"Hello"</div>
+                            <div class="confidence-badge" id="text-confidence">95.2%</div>
+                        </div>
+                    </div>
+                    <div class="result-loading hidden" id="text-loading">
+                        <div class="spinner"></div>
+                        <p>Analyzing handwriting...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">About</div>
+                <h2>Powered by <span class="highlight">Deep Learning</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Digit Recognition Model</h3>
+                    <p>Based on <a href="https://github.com/aakashjhawar/handwritten-digit-recognition" target="_blank">aakashjhawar/handwritten-digit-recognition</a></p>
+                    <ul>
+                        <li>4-layer CNN with MaxPooling</li>
+                        <li>Trained on MNIST (60K training, 10K test)</li>
+                        <li>99%+ test accuracy</li>
+                        <li>28×28 grayscale input</li>
+                    </ul>
+                </div>
+                <div class="about-card">
+                    <h3>Text Recognition Model</h3>
+                    <p>Based on <a href="https://github.com/githubharald/SimpleHTR" target="_blank">githubharald/SimpleHTR</a></p>
+                    <ul>
+                        <li>5 CNN + 2 LSTM layers + CTC</li>
+                        <li>Trained on IAM Handwriting Dataset</li>
+                        <li>~75% word accuracy, ~10% CER</li>
+                        <li>Supports words and text lines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="brand-name">InkSense</span>
+                <p>AI-powered handwriting recognition</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/aakashjhawar/handwritten-digit-recognition" target="_blank">Digit Repo</a>
+                <a href="https://github.com/githubharald/SimpleHTR" target="_blank">HTR Repo</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
