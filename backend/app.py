@@ -18,7 +18,7 @@ app = Flask(__name__, static_folder='../frontend', static_url_path='')
 CORS(app)
 
 # Upload folder
-UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'uploads')
+UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER', '/tmp/uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Initialize OpenAI Client
